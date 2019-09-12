@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.container .wrap {
+  position: relative;
+  top: 80px;
+  left: 50%;
+  margin-left: -150px;
+  width: 260px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.container .wrap > h3 {
+  text-align: center;
+}
+
+.container .wrap > p {
+  margin: 15px 0;
+  display: flex;
+  line-height: 25px;
+}
+
+.container .wrap > p > span {
+  width: 65px;
+  text-align: right;
+}
+
+.container .wrap > p > input {
+  flex: 1;
+  height: 25px;
+}
+
+.container .wrap > section {
+  text-align: center;
+}
+
+.container .wrap > section > button {
+  display: inline-block;
+  outline: none;
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+.container .wrap > section > button:hover {
+  color: #fff;
+  background-color: #333;
+}

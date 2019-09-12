@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.index-app > header {
+  margin-top: 50px;
+}
+
+.index-app > header > h2 {
+  font-size: 26px;
+  width: 100%;
+  text-align: center;
+}
+
+.index-app > header > h3 {
+  margin-bottom: 20px;
+}
+
+.index-app > section {
+  display: flex;
+}
+
+.index-app > section > .left-content {
+  width: 200px;
+}
+
+.index-app > section > .left-content > .main-left > li {
+  margin-bottom: 5px;
+  height: 40px;
+  line-height: 40px;
+  background-color: skyblue;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.index-app > section > .left-content > .main-left > li:hover {
+  background-color: blue;
+}
+
+.index-app > section > .right-content {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.index-app > section > .right-content > form > ul > li {
+  padding: 0 10px;
+  margin-top: 10px;
+}
+
+.index-app > section > .right-content > form > ul > li > label > input {
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+}
+
+.index-app > section > .right-content > form > ul > li > label > textarea {
+  width: 100%;
+  resize: none;
+}
+
+.index-app > section > .right-content > form > ul > li .upload-file {
+  font-size: 40px;
+  display: block;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #333;
+  line-height: 200px;
+  text-align: center;
+}
+
+.index-app > section > .right-content > form > ul > li .upload-file > input {
+  display: none;
+}
+
+.index-app > section > .right-content > form > ul .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.index-app > section > .right-content > form > ul .btn > input {
+  width: 200px;
+  height: 40px;
+  background-color: skyblue;
+  color: #fff;
+  border: 0 none;
+  border-radius: 10px;
+  outline: 0 none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.index-app > section > .right-content > form > ul .upload-wrpper > label > img {
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/success.css">
+    <title><%- title%></title>
+</head>
+<body>
+    <div class="index-app">
+        <header>
+            <h2>后台管理系统</h2>
+            <h3>欢迎回来：<%- header%>先生</h3>
+            <a href="http://127.0.0.1:8080/outlogin">退出登录</a>
+        </header>
+        <section>
+            <div class="left-content">
+                <ul class="main-left" id = 'main-left'>
+                    <li id="list1"><span>上传</span></li>
+                    <li id="list2"><span>列表</span></li>                    
+                </ul>
+            </div>
+            <div class="right-content">
+                <form action="http://127.0.0.1:8080/success/do" 
+                name="upload-files-form" 
+                method="POST" 
+                novalidate 
+                enctype="multipart/form-data" 
+                target="stop">
+                <ul>
+                    <li>
+                        <label>
+                            <span>作者：</span>
+                            <input type="text" name="author" placeholder="请输入作者">
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <span>标题：</span>
+                            <input type="text" name="title" placeholder="请输入标题">
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <p>内容：</p>
+                            <textarea name="content" id="content" cols="30" rows="10" placeholder="请输入内容"></textarea>
+                        </label>
+                    </li>
+                    <li class="upload-wrpper">
+                            <span>图片：</span>
+                        <label class="upload-file" id= "upload-file">
+                           
+                            +
+                            <input type="file" name="file-img" multiple id="file">
+                            <img src="" alt="" id="upload-img">
+                        </label>
+                    </li>
+                    <li class="btn">
+                            <input type="button" value="提交" id="confirm">
+                        </li>
+                </ul>
+            </form>
+            <!-- 要阻止提交按钮打开新页面的行为
+                并且还得发起请求
+                用iframe  
+                能连接连个页面在一个页面显示
+             -->
+             <iframe src="" name="stop" frameborder="0" style="display: none" id="formData"></iframe>
+            </div>            
+        </section>
+    </div>
+</body>
+<script src="/common/ajax.js"></script>
+<script>
+     $.getid('main-left').onclick = (ev) => {
+        let e = event || window.event;
+        let target = e.target;
+        switch(target.id){
+            case 'list1': window.location.href = 'http://127.0.0.1:8080/success';
+            break;
+            case 'list2': window.location.href = 'http://127.0.0.1:8080/list';
+            break;
+        }
+    }
+    $.getid('confirm').onclick = () => {
+        //给按钮绑定提交的功能   文件的提交需要单独的处理
+        document.forms['upload-files-form'].submit();
+    }
+    //监听上传文件的变化的
+    $.getid('file').onchange = function(ev) {
+        // console.log(this.files);   //返回的是一个对象
+        $.getid('upload-img').src =  window.URL.createObjectURL(ev.target.files[0]);
+        $.getid('upload-file').style.cssText = 'font-size:0; line-height:0';
+    }
+
+    //iframe 
+    $.getid('formData').onload = function() {
+        // console.log(this.contentWindow.document.body.innerText);
+        // 表单返回的数据
+        let data = JSON.parse(this.contentWindow.document.body.innerText);
+        if(data.status === 200) {
+            window.location.href = '/list';
+        }
+    }
+    // $.getid('file').onchange = ev => {
+    //     // ev.target.files  会返回图片的信息
+    //     console.log(this)
+    //     let result = window.URL.createObjectURL(ev.target.files[0]); // 一定是取[0]
+    //     console.log(result);
+    // }
+</script>
+</html>
